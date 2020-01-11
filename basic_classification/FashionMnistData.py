@@ -2,13 +2,11 @@ from tensorflow.python.keras.utils import get_file
 import gzip
 import numpy as np
 import sys
+import os
 
 
 def load_data():
-    if "win32" == sys.platform:
-        base = "file:////H:/py/tensorflow-abc/basic_classification/data/"
-    else:
-        base = "file:////Users/xhx-mac/development/code/tensorflow/tensorflow-abc/basic_classification/data/"
+    base = "file:////%s/data/" % os.path.abspath(os.path.dirname(__file__)) \
 
     files = [
         'train-labels-idx1-ubyte.gz', 'train-images-idx3-ubyte.gz',
